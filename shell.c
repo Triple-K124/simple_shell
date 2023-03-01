@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
+#include <unistd.h>
 
 /**
  * main - recieves data
@@ -10,6 +11,7 @@
 
 int main(void)
 {
+	char *argv[] = {"/bin/ls", "-l", NULL};
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	size_t characters;
@@ -23,7 +25,10 @@ int main(void)
 		perror("error");
 		exit(1);
 	}
-		printf("See if it will work");
+	else if (execve(argv[0], argv, NULL) == -1)
+	{
+		perror("Error:");
+	}
 
 	}
 	free(buffer);
