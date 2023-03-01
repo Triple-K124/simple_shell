@@ -14,17 +14,20 @@ int main(void)
 	char *argv[] = {"/bin/ls", "-l", NULL};
 	char *buffer = NULL;
 	size_t bufsize = 0;
-	size_t characters;
+	
 
 	while (1)
 	{
 	printf("$ ");
 	characters = getline(&buffer, &bufsize, stdin);
-	//if (characters == -1)
-	//{
-	//	perror("error");
-	//	exit(1);
-	//}
+	/**if (characters == -1)
+	*{
+	*	perror("error");
+	*	exit(1);
+	*}
+	*/
+
+
 	if (execve(argv[0], argv, NULL) == -1)
 	{
 		perror("Error:");
