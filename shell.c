@@ -20,12 +20,12 @@ int main(void)
 	{
 	printf("$ ");
 	characters = getline(&buffer, &bufsize, stdin);
-	if (characters == -1)
-	{
-		perror("error");
-		exit(1);
-	}
-	else if (execve(argv[0], argv, NULL) == -1)
+	//if (characters == -1)
+	//{
+	//	perror("error");
+	//	exit(1);
+	//}
+	if (execve(argv[0], argv, NULL) == -1)
 	{
 		perror("Error:");
 	}
