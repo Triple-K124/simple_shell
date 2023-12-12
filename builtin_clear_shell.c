@@ -13,6 +13,6 @@ int clear_shell(char **args)
 	(void)args;
 	/* avoid "unused parameter" warning */
 
-	_puts("\033[2J\033[H")
+	_puts("\033[2J\033[H");
 		return (1);
 }
