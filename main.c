@@ -11,14 +11,14 @@ int main(void)
 	char **command_args;
 	int execution_status;
 	int interactive;
-	
+
 	/* Signal handlers */
 	signal(SIGINT, handle_interrupt_signal);
 	signal(SIGQUIT, handle_quit_signal);
 	signal(SIGTSTP, handle_stop_signal);
-	
+
 	interactive = isatty(STDIN_FILENO);
-	
+
 	do {
 		if (interactive)
 		{
