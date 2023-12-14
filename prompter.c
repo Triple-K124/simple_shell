@@ -7,6 +7,9 @@
 */
 void prompter(void)
 {
-	_puts(PROMPT);
-	fflush(stdout);
+	if (isatty(STDIN_FILENO))
+	{
+		_puts(PROMPT);
+		fflush(stdout);
+	}
 }

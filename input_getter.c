@@ -14,7 +14,7 @@ char *input_getter(void)
 
 	do {
 		/* Display the shell prompt */
-		prompter();
+		/**prompter(); */
 
 		/* Read input line from the user */
 		mread = getline(&user_input, &input_size, stdin);
@@ -23,7 +23,10 @@ char *input_getter(void)
 		if (mread == -1)
 		{
 			free(user_input);
-			_puts("\n");
+			if (isatty(STDIN_FILENO))
+			{
+				_puts("\n");
+			}
 			return (NULL);
 		}
 
@@ -47,3 +50,4 @@ void free_old_input(void)
 	free(end_input);
 	end_input = NULL;
 }
+

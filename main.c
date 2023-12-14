@@ -10,13 +10,21 @@ int main(void)
 	char *user_input;
 	char **command_args;
 	int execution_status;
-
+	int interactive;
+	
 	/* Signal handlers */
 	signal(SIGINT, handle_interrupt_signal);
 	signal(SIGQUIT, handle_quit_signal);
 	signal(SIGTSTP, handle_stop_signal);
-
+	
+	interactive = isatty(STDIN_FILENO);
+	
 	do {
+		if (interactive)
+		{
+			prompter();
+		}
+
 		user_input = input_getter();
 		if (!user_input || !*user_input) /* End of File seen, exit */
 			break;
