@@ -39,6 +39,7 @@ int setenv_shell(char **args);
 int unsetenv_shell(char **args);
 int env_shell(void);
 int clear_shell(char **args);
+void echo_shell(char **args);
 
 /* handler_signal.c */
 void handle_interrupt_signal(int sig);

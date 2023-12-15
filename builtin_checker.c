@@ -25,6 +25,8 @@ int builtin_checker(char **args)
 		cd_shell(args);
 	else if (!_strcmp(args[0], "clear"))
 		clear_shell(args);
+	else if (!_strcmp(args[0], "echo"))
+		echo_shell(args);
 	else
 		return (0);
 
